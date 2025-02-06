@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    // 익명함수 : 에로우함수(화살표함수)
+    // 파라미터 1개일 경우 ()생략가능 , 2개이상, 없을 경우 생략 불가능
+    // 객체, if문, 반복문 있는 경우 {} 생략 불가능
+
+    const double = (number) => number * 2
+    console.log(double(5))
+
+    // 함수유형
+    const dom = function (n){
+      return n * 2
+    }
+    console.log(dom(4))
+
+    function dio (n){
+      return n * 2
+    }
+    console.log(dio(3))
+
+    const dou = (n) => n * 2;
+    console.log(dou(2))
+
+    // 파라미터가 없는 경우
+
+    const sum = () => {
+      return {name : '안녕'}
+    }
+    console.log(sum())
+
+    const myArr = () => {
+      console.log(arguments)
+    }
+    console.log(myArr)
+
+    // 키 : 값 이 같을경우 value 생략가능
+    const title = "spring";
+    const clas = 2024;
+    const job = "강사";
+
+    let myCourse = {
+      title,
+      clas,
+      job
+    }
+    console.log(myCourse)
+
+    function fullName(){
+      return `${guest.firstName}${guest.lastName}`
+    }
+
+    let guest = {
+      firstName : '아',
+      lastName : '이유',
+      fullName(){
+        return`${guest.firstName}${guest.lastName}`
+      }
+    }
+    console.log(guest.fullName())
+
+    // 표현식 형태
+    // 키 >> ['아'+'이유'] : 값 >> 'value'
+    const users = {
+      ['아'+'이유'] : 'value'
+    }
+    console.log(users)
+
+    const myClass = "수업";
+    const myJob = () => "직업"
+    const study = {
+      [myClass] : 2024,
+      [myJob] : "강사"
+    }
+    console.log(study)
+
+    function myFat(user){
+      console.log(user.cat.name)
+    }
+
+    let user1 = {
+      name : "고양이",
+      cat : {
+        name : "야옹이",
+        bread : "후후"
+      }
+    }
+
+    let user2 ={
+      name : "멍멍"
+    }
+
+    myFat(user1)
+    // myFat(user2) >> user2는 cat이라는 키가 없기 때문에 오류 발생
+    // 레스트 파라미터 : ... >> 마지막 파라미터에 사용
+    let artist = ['지수','리리','마마','니니','파파']
+    let [cow,cat,dog,...bug] = artist;
+
+    console.log("---------------------")
+    console.log(cow)
+    console.log(cat)
+    console.log(dog)
+    console.log(bug)
+    console.log("---------------------")
+
+    let gax = '자자';
+    let gay = '무무';
+
+    // 값 변경
+    [gax,gay] = [gay,gax]
+
+    console.log(gax)
+    console.log(gay)
+
+    let Book = {
+      tle : 'nt750',
+      price : 16000,
+      'serial-num' : 'FFF'
+    }
+
+    // tle >> product로 변경 'serial-num' >> serialNum로 변경
+    let {tle : product, 'serial-num' : serialNum} = Book;
+    // let {product : [propertyName]} = Book
+    console.log(product)
+    console.log(serialNum)
+
+    function computer ([book,tab,watch,...buds]){
+      console.log("결과")
+      console.log(`1등${book}`)
+      console.log(`2등${tab}`)
+      console.log(`3등${watch}`)
+
+      for (let user of book) {
+          console.log(`${user}`)
+      }
+      console.log(`총 수 ${buds.length}`)
+    }
+
+    computer('마나','기운','성역','성령','대기')
+    console.log('======================')
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // typeof >> 타입을 보는 태그
+        // 함수는 객체 타입값으로 평가
+
+        // 즉시 실행함수 : 일회용 함수
+        // 함수를 ()괄호로 덮어주고 뒤에 () 붙여 사용
+        (function (x,y){
+            console.log(x+y);
+        })(5,5)
+
+        const mmm = '아';
+        const mm= '아이';
+        const gr = (function (){
+             const ak = `${mmm},${mm}`
+            return`이름${ak}`
+        })
+
+        console.log(gr)
+
+        // 배열 [] : 함수 객체를 넣을 수 있음
+        const myOb = [
+            '아이유',
+            '1234',
+            true,
+            function (name){
+            console.log(`${name}`)
+            }
+        ]
+
+        console.log(myOb[0],myOb[1],myOb[2],)
+        myOb[3]('이이')
+
+        // 콜백함수 : 함수에서 함수를 호출하는 것
+        function Quiz (quiz,answer,success,fail){
+            if(prompt(quiz) == answer){
+                console.log(getSuccess())
+            }else{
+                console.log(getFail())
+            }
+        }
+
+        // console.log()로 할 경우 조건에 맞지 않아도 출력됨
+        function getSuccess(){
+            return "정답"
+        }
+        function getFail(){
+            return "실패"
+        }
+
+        const question = "10 + 10 = ?"
+        // Quiz(question,20,getSuccess(),getFail())
+
+        // 고차함수 : 함수가 함수를 리턴하는 것 >> 함수명()()
+        function getWay(){
+            return function (){
+                console.log("히히")
+            }
+        }
+        getWay()();
+
+        // 매개변수 : a,b arguments : 1,2
+        // arguments : 유사배열 = 배열의 형태이지만 배열의 메서드를 사용할수 없음
+
+
+        // for of문 : 배열일 때 사용 하는 반복문
+        function ar(a,b){
+            for (const ar of arguments) {
+                console.log(ar)
+            }
+        }
+
+        ar(1,2)
+        ar(5)
+        ar(6,7,8,9) // 다 출력
+
+        // 레스트 파라미터 (...) >> 스프레드를 파라미터로 사용 , 배열 메서드 사용 가능
+        // slice 함수 >> 시작값~종료값 까지 복사 >> 배열 생성
+        function restPara(...args){
+            for (const arg of args) {
+                console.log(arg)
+            }
+            console.log(args.slice(0,2))
+            console.log("==================")
+        }
+
+        restPara("진","애쉬","미포")
+        restPara("bf")
+    </script>
+</body>
+</html>
